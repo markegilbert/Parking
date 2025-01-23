@@ -2,12 +2,19 @@
 {
     public class VehicleBase : IVehicle
     {
-        public string Make { get; protected set; }
-        public string Model { get; protected set; }
-        public int NumberOfWheels { get; protected set; }
-        public double Length { get; protected set; }
-        public int Weight { get; protected set; }
-        public int MaxNumberOfPassengers { get; protected set; }
-        public bool IsCompact { get; }
+        public string Make { get; set; }
+        public string Model { get; set; }
+        public int NumberOfWheels { get; set; }
+        public double Length { get; set; }
+        public int Weight { get; set; }
+        public int MaxNumberOfPassengers { get; set; }
+
+        public bool IsCompact 
+        { 
+            get
+            {
+                return this.Weight < 1500;
+            }
+        }
     }
 }

@@ -7,6 +7,10 @@ namespace Parking.ParkingDestination
         public ParkingLot() 
         {
             // TODO: Initialize the properties for this particular parking destination
+
+
+            // Parking lots do not have compact-only spots
+            this.NumberOfCompactOnlySpots = 0;
         }
 
         public override bool CanAccommodate(IVehicle vehicle)

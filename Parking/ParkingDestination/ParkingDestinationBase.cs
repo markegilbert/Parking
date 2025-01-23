@@ -4,8 +4,8 @@ namespace Parking.ParkingDestination
 {
     public class ParkingDestinationBase : IParkingDestination
     {
-        public int NumberOfCompactOnlySpots { get; }
-        public int NumberOfTotalSpots { get; }
+        public int NumberOfCompactOnlySpots { get; protected set; }
+        public int NumberOfTotalSpots { get; protected set; }
 
 
         // TODO: Part of the implementation here will be to create a structure that stores the list
@@ -13,7 +13,7 @@ namespace Parking.ParkingDestination
         //       at least a unique identifier and a flag that said if it was a "Compact-Only" spot.
         //
         //       The NumberOf properties, then, would return a simple count of the number of
-        //       spots in that structure.
+        //       spots in that structure, and we can get rid of the protected setters.
 
 
         // TODO: We probably want additional flags for AreThereAnyCompanyOnlySpotsAvailabe and
@@ -31,15 +31,15 @@ namespace Parking.ParkingDestination
         // This is the default implementation.  This can be overridden in lower classes
         virtual public int AssignParkingSpot(IVehicle vehicle)
         {
-            // TODO: Implement this algorithm:
+            // TODO: Implement the default algorithm:
             //
-            //      If CanAccommodate(vehicle) returns false, then return 0.  This means there are no spots available that can accommodate this vehicle.
+            //      If CanAccommodate(vehicle) returns false, then return 0 here.  This means there are no spots available that can accommodate this vehicle.
             //
-            //      If vehicle.IsCompact, see if there are compact-only spots available.  If so, return the ID of the first available.
+            //      If vehicle.IsCompact is true, see if there are compact-only spots available.  If so, return the ID of the first available.
             //
             //      If vehicle.IsCompact is false, or if there are no compact-only spots available, see if there is a general spot available.  If so, return the ID of the first available.
             //
-            //      Return 0.  This means there are no spots available that can accommodate this vehicle.
+            //      Otherwise return 0.  This means there are no spots available that can accommodate this vehicle.
 
 
             throw new NotImplementedException();
